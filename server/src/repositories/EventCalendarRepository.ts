@@ -8,6 +8,10 @@ interface ICreateEventCalendar {
   textColor: string;
 }
 
+interface IGetOneEventCalendar {
+  _id: string
+}
+
 interface IUpdateEventCalendar {
   _id: string;
   title: string;
@@ -33,6 +37,14 @@ export class EventCalendarRepository {
   async getAll() {
     try {
       return await EventCalendarModel.find({});
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getOne({ _id }: IGetOneEventCalendar) {
+    try {
+      return await EventCalendarModel.findOne({_id});
     } catch (err) {
       throw err;
     }
