@@ -2,6 +2,7 @@ import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import { CalendarScheduler } from "../components/CalendarScheduler";
+import { mapArrayEventCalendar } from "../domain/EventCalendar";
 import { getAllEventsCalendar } from "../services/eventCalendarApi";
 
 interface IHomeProps {
