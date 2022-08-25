@@ -3,7 +3,7 @@ import { EventCalendarRepository } from "../../../../repositories/EventCalendarR
 import { CustomError } from "../../../../shared/errors/CustomError";
 import { CreateEventCalendarService } from "./CreateEventCalendarService";
 
-export class CreateCharacterController {
+export class CreateEventCalendarController {
   async handle(request: Request, response: Response) {
     const { eventCalendar = null } = request.body;
 
