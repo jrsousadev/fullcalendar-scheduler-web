@@ -53,7 +53,7 @@ export const ModalInfosEventCalendar = ({
     try {
       const calendarApi: CalendarApi = eventInfos.view.calendar;
 
-      const { eventCalendar } = await createEventCalendar({
+      const eventCalendar = await createEventCalendar({
         eventCalendar: {
           title: title === '' ? 'Sem título' : title,
           start: eventInfos.startStr,

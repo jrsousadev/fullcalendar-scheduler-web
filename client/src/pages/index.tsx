@@ -1,9 +1,11 @@
+import { Typography } from "@mui/material";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import { CalendarScheduler } from "../components/CalendarScheduler";
 import { mapArrayEventCalendar } from "../domain/EventCalendar";
 import { getAllEventsCalendar } from "../services/eventCalendarApi";
+import { ContainerMain } from "../styles/Home";
 
 interface IHomeProps {
   listAllEventsCalendar: any;
@@ -20,9 +22,10 @@ const Home: NextPage = ({ listAllEventsCalendar }: IHomeProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <CalendarScheduler eventsCalendar={listAllEventsCalendar} />
-      </main>
+      <ContainerMain>
+        <Typography variant="h2"> Full Calendar Scheduler </Typography>
+        <CalendarScheduler eventsCalendar={listEventsCalendar} />
+      </ContainerMain>
     </>
   );
 };
