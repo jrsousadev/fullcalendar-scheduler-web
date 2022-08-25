@@ -1,4 +1,4 @@
-import { api } from './api';
+import api from './api';
 import {
   CREATE_EVENT_CALENDAR,
   DELETE_EVENT_CALENDAR,
