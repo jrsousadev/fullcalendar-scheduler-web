@@ -14,6 +14,7 @@ export class CreateEventCalendarService {
 
   async execute(data: IRequest) {
     try {
+      if (!data) throw new CustomError("Event Calendar not found", 400);
 
       const eventCalendar = this.eventCalendarRepository.create(data);
 
