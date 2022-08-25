@@ -1,7 +1,8 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
 import { CalendarScheduler } from "../components/CalendarScheduler";
+import { getAllEventsCalendar } from "../services/eventCalendarApi";
 
 interface IHomeProps {
   listAllEventsCalendar: any;
@@ -23,6 +24,17 @@ const Home: NextPage = ({ listAllEventsCalendar }: IHomeProps) => {
       </main>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const { eventsCalendar } = await getAllEventsCalendar();
+  const listAllEventsCalendar = mapArrayEventCalendar(eventsCalendar);
+
+  return {
+    props: {
+      listAllEventsCalendar: listAllEventsCalendar ?? [],
+    },
+  };
 };
 
 export default Home;

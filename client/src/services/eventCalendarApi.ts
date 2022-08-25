@@ -2,7 +2,7 @@ import { api } from './api';
 import {
   CREATE_EVENT_CALENDAR,
   DELETE_EVENT_CALENDAR,
-  GET_ALL_EVENTS_CALENDAR_BY_USER,
+  GET_ALL_EVENTS_CALENDAR,
   UPDATE_EVENT_CALENDAR,
 } from './eventCalendarRoutes';
 
@@ -25,9 +25,9 @@ export const createEventCalendar = async (data: ICreateEventCalendar) => {
   }
 };
 
-export const getAllEventsCalendarByUser = async () => {
+export const getAllEventsCalendar = async () => {
   try {
-    const response = await api.get(GET_ALL_EVENTS_CALENDAR_BY_USER);
+    const response = await api.get(GET_ALL_EVENTS_CALENDAR);
     return response.data;
   } catch (err) {
     return err;
