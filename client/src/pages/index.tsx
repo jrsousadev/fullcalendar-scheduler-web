@@ -21,15 +21,15 @@ const Home: NextPage = ({ listAllEventsCalendar }: IHomeProps) => {
       </Head>
 
       <main>
-        <CalendarScheduler />
+        <CalendarScheduler eventsCalendar={listAllEventsCalendar} />
       </main>
     </>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { eventsCalendar } = await getAllEventsCalendar();
-  const listAllEventsCalendar = mapArrayEventCalendar(eventsCalendar);
+  const eventsCalendar = await getAllEventsCalendar();
+  const listAllEventsCalendar = mapArrayEventCalendar(eventsCalendar)
 
   return {
     props: {
