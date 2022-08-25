@@ -9,8 +9,13 @@ import { useState } from "react";
 import { ContainerCalendar } from "./styles";
 import { updateEventCalendar } from "../services/eventCalendarApi";
 import { toast } from "react-toastify";
+import { IEventCalendar } from "../domain/EventCalendar";
 
-export const CalendarScheduler = () => {
+type CalendarSchedulerProps = {
+  eventsCalendar: IEventCalendar[];
+}
+
+export const CalendarScheduler = ({eventsCalendar}: CalendarSchedulerProps) => {
   const [eventInfos, setEventInfos] = useState();
   const [isEditCard, setIsEditCard] = useState<boolean>(false);
 
@@ -74,7 +79,7 @@ export const CalendarScheduler = () => {
       select={handleAddEventSelectAndOpenModal}
       eventClick={handleEditEventSelectAndOpenModal}
       eventChange={handleUpdateEventSelect}
-      initialEvents={[]}
+      initialEvents={eventsCalendar}
       longPressDelay={1000}
       eventLongPressDelay={1000}
       selectLongPressDelay={1000}
