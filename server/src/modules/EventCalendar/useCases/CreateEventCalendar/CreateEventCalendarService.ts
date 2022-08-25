@@ -16,7 +16,7 @@ export class CreateEventCalendarService {
     try {
       if (!data) throw new CustomError("Event Calendar not found", 400);
 
-      const eventCalendar = this.eventCalendarRepository.create(data);
+      const eventCalendar = await this.eventCalendarRepository.create(data);
 
       if (!eventCalendar) throw new CustomError("Internal server error", 400);
 
