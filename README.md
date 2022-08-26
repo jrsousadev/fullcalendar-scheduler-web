@@ -25,6 +25,10 @@
 
 https://user-images.githubusercontent.com/92350736/186804113-4a5cdc03-bd11-4fd1-a293-3af857a025cd.mp4
 
+#### Update events and delete
+
+https://user-images.githubusercontent.com/92350736/186804582-fcec916d-2f7a-4ac0-b80e-1b466740066f.mp4
+
 ### Init Project
 
 **1-** Clone repository.
