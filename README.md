@@ -21,6 +21,10 @@
 
 ![image](https://user-images.githubusercontent.com/92350736/186803018-7f53f5b3-db6c-4199-bed0-aacd8a5ee31b.png)
 
+#### Add events and choose color
+
+https://user-images.githubusercontent.com/92350736/186804113-4a5cdc03-bd11-4fd1-a293-3af857a025cd.mp4
+
 ### Init Project
 
 **1-** Clone repository.
