@@ -14,21 +14,30 @@ export class UpdateEventCalendarService {
     private eventCalendarRepository: EventCalendarRepository,
   ) {}
 
-  async execute(data: IRequest) {
-    try {
-      if (!data) throw new CustomError("Event Calendar not found", 400);
+  async execute({_id, backgroundColor, end, start, textColor, title}: IRequest) {
+    const eventCalendarUpdated: any = {
+      _id,
+      title,
+      start,
+      end,
+      backgroundColor,
+      textColor
+    }
 
-      const eventCalendarExist = await this.eventCalendarRepository.getOne({_id: data._id});
+    try {
+      if (!_id) throw new CustomError("Event Calendar not found", 400);
+
+      const eventCalendarExist = await this.eventCalendarRepository.getOne({_id});
 
       if (!eventCalendarExist) throw new CustomError("Internal server error", 400);
 
-      for (const index in data) {
-        if (typeof data[index] === "undefined") {
-          delete data[index];
+      for (const index in eventCalendarUpdated) {
+        if (typeof eventCalendarUpdated[index] === "undefined") {
+          delete eventCalendarUpdated[index];
         }
       }
       
-      const eventCalendar = await this.eventCalendarRepository.update(data);
+      const eventCalendar = await this.eventCalendarRepository.update(eventCalendarUpdated);
 
       return eventCalendar;
     } catch (err) {

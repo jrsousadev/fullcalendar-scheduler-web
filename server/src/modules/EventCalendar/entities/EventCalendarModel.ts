@@ -1,6 +1,6 @@
-import mongoose, { Document, Model } from "mongoose";
+import mongoose, { Document } from "mongoose";
 
-const EventCalendarSchema = new mongoose.Schema(
+const EventCalendarSchema = new mongoose.Schema<IEventCalendar>(
   {
     title: {
       type: String,
@@ -22,13 +22,6 @@ const EventCalendarSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    removedAt: {
-      type: Date,
-      index: true,
-      default: null,
-
-      es_indexed: true,
-    },
   },
   {
     timestamps: {
@@ -45,13 +38,11 @@ export interface IEventCalendar extends Document {
   end: Date;
   backgroundColor: string;
   textColor: string;
-
-  removedAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const EventCalendarModel: Model<IEventCalendar> = mongoose.model(
+const EventCalendarModel = mongoose.model(
   "EventCalendar",
   EventCalendarSchema
 );

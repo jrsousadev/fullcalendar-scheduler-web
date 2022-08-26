@@ -10,7 +10,7 @@ export class UpdateEventCalendarController {
     try {
       const eventCalendarRepository = new EventCalendarRepository();
       const updateEventCalendarService = new UpdateEventCalendarService(eventCalendarRepository);
-      const eventCalendarData = await updateEventCalendarService.execute(eventCalendar);
+      const eventCalendarData = await updateEventCalendarService.execute({eventCalendar});
 
       return response.status(201).json(eventCalendarData);
     } catch (err) {
