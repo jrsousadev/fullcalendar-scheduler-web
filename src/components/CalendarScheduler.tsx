@@ -26,19 +26,19 @@ export const CalendarScheduler = ({eventsCalendar}: CalendarSchedulerProps) => {
 
   const modalInfosEvent = useDisclosure(false);
 
-  const handleAddEventSelectAndOpenModal = (selectInfo) => {
+  const handleAddEventSelectAndOpenModal = (selectInfo: any) => {
     setEventInfos(selectInfo);
     setIsEditCard(false);
     modalInfosEvent.handleOpen();
   };
 
-  const handleEditEventSelectAndOpenModal = (clickInfo) => {
+  const handleEditEventSelectAndOpenModal = (clickInfo: any) => {
     setEventInfos(clickInfo);
     setIsEditCard(true);
     modalInfosEvent.handleOpen();
   };
 
-  const handleUpdateEventSelect = async (changeInfo) => {
+  const handleUpdateEventSelect = async (changeInfo: any) => {
     try {
       const eventCalendarUpdated = {
         eventCalendar: {
