@@ -11,7 +11,7 @@ interface IHomeProps {
   listAllEventsCalendar: any;
 }
 
-const Home: NextPage = ({ listAllEventsCalendar }: IHomeProps) => {
+const Home = ({ listAllEventsCalendar }: IHomeProps) => {
   const [listEventsCalendar, setListEventsCalendar] = useState<any[]>(listAllEventsCalendar);
   
   return (
