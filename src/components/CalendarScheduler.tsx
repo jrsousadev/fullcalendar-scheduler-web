@@ -27,14 +27,14 @@ export const CalendarScheduler = ({eventsCalendar}: CalendarSchedulerProps) => {
   const modalInfosEvent = useDisclosure(false);
 
   const handleAddEventSelectAndOpenModal = (selectInfo: any) => {
-    setEventInfos(selectInfo);
     setIsEditCard(false);
+    setEventInfos(selectInfo);
     modalInfosEvent.handleOpen();
   };
 
   const handleEditEventSelectAndOpenModal = (clickInfo: any) => {
-    setEventInfos(clickInfo);
     setIsEditCard(true);
+    setEventInfos(clickInfo);
     modalInfosEvent.handleOpen();
   };
 
