@@ -36,11 +36,16 @@ export const ModalInfosEventCalendar = ({
 
   useEffect(() => {
     if (isEditCard) {
-      setTitle(eventInfos.event.title);
+      setTitle(eventInfos?.event?.title);
+      setCardColor({
+        backgroundColor: eventInfos?.event?.backgroundColor,
+        textColor: eventInfos?.event?.textColor,
+      });
     } else {
       setTitle('');
+      setCardColor({backgroundColor: '#039be5', textColor: '#ffffff'});
     }
-  }, [isEditCard]);
+  }, [eventInfos, isEditCard]);
 
   const handleSelectCardColor = (color: ColorsCard) => {
     setCardColor({
@@ -139,7 +144,7 @@ export const ModalInfosEventCalendar = ({
               <input
                 type="radio"
                 name="cardColor"
-                defaultChecked={color.backgroundColor === cardColor.backgroundColor}
+                checked={color.backgroundColor === cardColor.backgroundColor}
               />
             </BackgroundColorRounded>
           ))}
